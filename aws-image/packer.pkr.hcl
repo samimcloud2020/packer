@@ -7,13 +7,13 @@ packer {
   }
 }
 variable "accesskey" {
-  type = string
-  default = " "  # vault aws credentials
+  type    = string
+  default = "" # vault aws credentials
 }
 
 variable "secretkey" {
-  type = string
-  default = " "  # vault aws credentials
+  type    = string
+  default = "" # vault aws credentials
 }
 
 source "amazon-ebs" "ubuntu" {
@@ -33,15 +33,16 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name    = "learn-packer"
+  name = "learn-packer"
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
-   provisioner "shell" {
+  provisioner "shell" {
     inline = ["sudo add-apt-repository ppa:openjdk-r/ppa", "sudo apt-get update", "sudo apt-get install -y openjdk-8-jdk", "java -version", "sudo apt-get install -y tomcat8"]
   }
-  post-processor "awsami-tag" {
-    repository = "samimbsnl"
-    tags       = ["ubuntu-xenial"]
+  post-processor "checksum" {
+    checksum_types = [ "md5", "sha512" ]
+    keep_input_artifact = true
+    only = ["amazon-ebs.ubuntu"]
   }
 }
