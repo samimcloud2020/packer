@@ -34,5 +34,8 @@ build {
     "echo \"FOO is $FOO\" > example.txt",
   ]
 }
-
+post-processor "docker-tag" {
+    repository = "samimbsnl"
+    tags       = ["ubuntu-xenial"]
+  }
 }
