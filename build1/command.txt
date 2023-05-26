@@ -1,6 +1,8 @@
 $ packer build -var-file=awskeys.json consul.json
 
 $ packer hcl2_upgrade consul.json  ___> consul.json.pkr.hcl
+-------------------------------------------------
+only consul.pkr.hcl and consul.pem needed
 
 $ packer init .
 $ packer build .
