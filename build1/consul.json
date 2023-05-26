@@ -4,7 +4,7 @@
         {
             "access_key": "{{ user `accesskey` }}",
             "secret_key": "{{ user `secretkey` }}",
-            "ami_name": "samim-ami-java-tomcat2",
+            "ami_name": "samim-ami-java-tomcat {{ timestamp }}",
             "instance_type": "t3.micro",
             "region": "us-east-1",
             "security_group_id":"sg-0585839a0077faf5a",
