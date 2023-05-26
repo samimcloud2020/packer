@@ -1,0 +1,39 @@
+{
+   
+    "builders": [
+        {
+            "access_key": "{{ user `accesskey` }}",
+            "secret_key": "{{ user `secretkey` }}",
+            "ami_name": "samim-ami-java-tomcat2",
+            "instance_type": "t3.micro",
+            "region": "us-east-1",
+            "security_group_id":"sg-0585839a0077faf5a",
+            "ssh_keypair_name":"consul",
+            "ssh_private_key_file":"consul.pem",
+            "associate_public_ip_address":"true",
+            "source_ami_filter": {
+              "filters": {
+              "virtualization-type": "hvm",
+              "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+              "root-device-type": "ebs"
+              },
+              "owners": ["099720109477"],
+              "most_recent": true
+            },
+            "ssh_username": "ubuntu",
+            "type": "amazon-ebs"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline":[
+                "sudo add-apt-repository ppa:openjdk-r/ppa",
+                "sudo apt-get update",
+                "sudo apt-get install -y openjdk-8-jdk",
+                "java -version",
+                "sudo apt-get install -y tomcat8"
+            ]
+        }
+    ]
+}
