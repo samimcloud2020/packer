@@ -6,15 +6,6 @@ packer {
     }
   }
 }
-variable "accesskey" {
-  type    = string
-  default = "" # vault aws credentials
-}
-
-variable "secretkey" {
-  type    = string
-  default = "" # vault aws credentials
-}
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "learn-packer-linux-aws"
