@@ -6,5 +6,8 @@ post-processor "docker-tag" {
   tags       = ["ubuntu-xenial"]
 }
 This post-processor block will tag the newly created image with ubuntu-xenial.
-
+$ docker images
+$ docker run -it IMAGE_ID
+$cat example.txt
+$ exit
 -----------------------------------------------------------
