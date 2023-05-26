@@ -1,2 +1,10 @@
 $ packer build packer.pkr.hcl
 $ docker images
+-----------------------------------------------------
+post-processor "docker-tag" {
+  repository = "learn-packer"
+  tags       = ["ubuntu-xenial"]
+}
+This post-processor block will tag the newly created image with ubuntu-xenial.
+
+-----------------------------------------------------------
