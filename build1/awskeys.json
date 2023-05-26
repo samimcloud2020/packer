@@ -1,0 +1,8 @@
+{
+  "accessKey": "AKIAIMQUVKMCSRB5NEZA",
+  "secretKey": "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",
+  "leaseId": "aws/creds/packer/1pf3nMh8KEEJtQQGADFtGYAE"
+}
+
+
+These are dynamic vault aws credentials.
