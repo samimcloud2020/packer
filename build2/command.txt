@@ -1,1 +1,2 @@
 $ packer build packer.pkr.hcl
+$ docker images
